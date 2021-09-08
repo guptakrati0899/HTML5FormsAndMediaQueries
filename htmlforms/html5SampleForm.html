@@ -62,6 +62,26 @@
                 textError.textContent = "Enter Valid Name!";
             }
         });
+        const email = document.querySelector('#email');
+        const emailError = document.querySelector('.email-error');
+        email.oninput = function() {
+            let nameRegex = RegExp('^[0-9a-zA-Z]+([._+-][0-9a-zA-Z]+)*@([0-9a-zA-Z][-]?)+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$');
+            if (nameRegex.test(email.value)) {
+                emailError.textContent="";
+            } else {
+                emailError.textContent = "E-mail is Incorrect";
+            }
+        };
+        const pwd = document.querySelector('#pwd');
+        const pwdError = document.querySelector('.pwd-error');
+        pwd.oninput = function() {
+            let nameRegex = RegExp('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]{1}).{8,}$');
+            if (nameRegex.test(pwd.value)) {
+                pwdError.textContent="";
+            } else {
+                pwdError.textContent = "Enter Valid Password";
+            }
+        };
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
         output.textContent = salary.value;
